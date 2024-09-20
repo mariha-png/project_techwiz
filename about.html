@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartTravel</title>
+  <link rel="shortcut icon" href="/images/logoo-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./images/looog-removebg-preview.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Genos&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<style>
+
+
+.animenu__toggle {
+  display: none;
+  cursor: pointer;
+  
+  border: 0;
+  padding: 20px;
+  height: 40px;
+  width: 100%;
+
+  }
+.animenu__toggle:hover {
+  background-color: #004574;
+}
+
+.animenu__toggle__bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+
+  transition: 0.15s cubic-bezier(0.75, -0.55, 0.25, 1.55);
+}
+.animenu__toggle__bar + .animenu__toggle__bar {
+  margin-top: 4px;
+}
+
+.animenu__toggle--active .animenu__toggle__bar {
+  margin: 0;
+  position: absolute;
+}
+.animenu__toggle--active .animenu__toggle__bar:nth-child(1) {
+  transform: rotate(45deg);
+}
+.animenu__toggle--active .animenu__toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+.animenu__toggle--active .animenu__toggle__bar:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.animenu {
+  display: block;
+
+}
+.animenu ul {
+  padding: 0;
+  list-style: none;
+  font: 0px 'Open Sans', Arial, Helvetica;
+  margin-left:300px;
+  margin-top:2px;
+  }
+.animenu li, .animenu a {
+  display: inline-block;
+  font-size: 15px;
+  
+}
+.animenu a {
+  color: #009fa5;
+  text-decoration: none;
+}
+
+
+.animenu__nav > li {
+  position: relative;
+  border-right: 1px solid ;
+}
+.animenu__nav > li > a {
+  padding: 10px 30px;
+  text-transform: uppercase;
+}
+.animenu__nav > li > a:first-child:nth-last-child(2):before {
+  content: "";
+  position: absolute;
+  border: 4px solid transparent;
+  border-bottom: 0;
+  border-top-color: currentColor;
+  top: 50%;
+  margin-top: -2px;
+  margin-left: -5px;
+  right: 10px;
+}
+.animenu__nav > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  margin: 0;
+}
+.animenu__nav > li:hover > a {
+  color: #ffffff;
+}
+
+.animenu__nav__child {
+  min-width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  margin: 20px 0 0 0;
+  background-color: #373737;
+  transition: margin .15s, opacity .15s;
+}
+.animenu__nav__child > li {
+  width: 100%;
+  border-bottom: 1px solid #515151;
+}
+.animenu__nav__child > li:first-child > a:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  left: 1em;
+  top: -6px;
+  border: 6px solid transparent;
+  border-top: 0;
+  border-bottom-color: inherit;
+}
+.animenu__nav__child > li:last-child {
+  border: 0;
+}
+.animenu__nav__child a {
+  padding: 10px;
+  width: 100%;
+  border-color: #373737;
+}
+.animenu__nav__child a:hover {
+  background-color: #0186ba;
+  border-color: #0186ba;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .animenu__toggle {
+    display: inline-block;
+  }
+
+  .animenu__nav,
+  .animenu__nav__child {
+    display: none;
+  }
+
+  .animenu__nav {
+    margin: 20px 0;
+  }
+  .animenu__nav > li {
+
+    border-right: 0;
+    border-bottom: 1px solid #515151;
+  }
+  .animenu__nav > li:last-child {
+    border: 0;
+  }
+  .animenu__nav > li:first-child > a:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: 1em;
+    top: -6px;
+    border: 6px solid transparent;
+    border-top: 0;
+    border-bottom-color: inherit;
+  }
+  .animenu__nav > li > a {
+    width: 100%;
+    padding: 10px;
+    border-color: #111;
+    position: relative;
+  }
+  .animenu__nav a:hover {
+    background-color: #ff1e00;
+    border-color: #0186ba;
+    color: #fff;
+  }
+
+  .animenu__nav__child {
+    position: static;
+    background-color: #080000;
+    margin: 0;
+    transition: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  .animenu__nav__child > li:first-child > a:after {
+    content: none;
+  }
+  .animenu__nav__child a {
+    padding-left: 20px;
+    width: 100%;
+  }
+}
+.animenu__nav--open {
+  display: block !important;
+}
+.animenu__nav--open .animenu__nav__child {
+  display: block;
+}
+.log1{
+color:black;
+}
+.parallax1b1{
+	background-image:url("./images/66.webp");
+
+        background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+	height:350px;
+	width:100%;
+
+	}
+	.body {
+    background-image:url("/images/main.jpg");
+   text-align: center;
+
+    height:auto; 
+	width:100%;
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	line-height: 24px;
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 15%;
+}
+.ab1{
+	height:300px;
+	width:290px;
+    border:dashed 1px rgb(2, 172, 252);
+	border-radius:5px;
+	background: rgb(255, 255, 255);
+    position: relative;
+    -webkit-animation: myfirst 5s infinite; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation: myfirst 5s infinite;
+    animation-direction: alternate;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    50%  {background: yellow; left: 200px; top: 0px;}
+    100%  {background: blue; left: 200px; top: 200px;}
+    50%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+
+@keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    50%  {background: yellow; left: 200px; top: 0px;}
+    100%  {background: blue; left: 200px; top: 200px;}
+    50%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+	/* footer */
+  #social {
+    background-image: url("./images/.jpeg");
+    padding: 0;
+}
+
+#social .overlay {
+    background: url("./images/g55.jpeg") repeat scroll 0 0 transparent;
+    padding: 30px 0 120px;
+}
+
+.social-button {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.social-button li {
+    display: inline-block;
+}
+
+.social-button li:nth-child(2) {
+    margin: 0 55px;
+}
+
+.social-button li a {
+    border: 2px solid #feffff;
+    border-radius: 50%;
+    color: #f8fcfd;
+    display: block;
+    height: 90px;
+    line-height: 96px;
+    width: 90px;
+    
+    -webkit-transition: all 0.2s ease 0s;
+       -moz-transition: all 0.2s ease 0s;
+        -ms-transition: all 0.2s ease 0s;
+         -o-transition: all 0.2s ease 0s;
+            transition: all 0.2s ease 0s;
+}
+
+.social-button li a:hover {
+    color: #00b3ff;
+    border: 2px solid #0088b9;
+}
+
+/* footer end */
+ /* marquee  */
+
+ .page1 {
+  width: 100%;
+  height: 100vh;
+  --space: 2rem;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  overflow: hidden;
+  gap: var(--space);
+  width: 100%;
+  height: 100vh;
+  font-family: "Corben", system-ui, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+.marquee .marquee--borders p{
+  color: white;
+}
+.marquee {
+  --duration: 40s;
+  --gap: var(--space);
+
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  transform: skewY(-3deg);
+}
+
+.marquee__group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll var(--duration) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__group {
+    animation-play-state: paused;
+  }
+}
+
+.marquee__group img {
+  max-width: clamp(35rem, 1rem + 28vmin, 20rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.marquee__group p {
+  background-image: linear-gradient(75deg,
+      hsl(189, 99%, 26%) 0%,
+      hsl(187, 100%, 48%) 78%,
+      hsl(0, 0%, 0%) 89%,
+      hsl(187, 100%, 48%) 78%,
+      hsl(0, 0%, 0%) 89%,
+      hsl(187, 100%, 48%) 78%,
+      hsl(0, 0%, 0%) 89%,
+      hsl(187, 100%, 48%) 78%,
+      hsl(0, 0%, 0%) 89%,
+      hsl(187, 100%, 50%) 100%);
+
+  -webkit-text-fill-color: white;
+  border-radius: 2px;
+  font-size: 4rem;
+}
+
+.marquee--borders {
+  border-block: 3px solid rgb(215, 220, 224);
+  padding-block: 2rem;
+}
+
+.marquee--reverse .marquee__group {
+  animation-direction: reverse;
+  animation-delay: calc(var(--duration) / -2);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+/* 1 aniamtion end */
+
+
+.main {
+  height: 100%;
+  position: relative;
+}
+
+h1 {
+  font-family: 'roboto', serif;
+  font-size: 60px;
+  line-height: 1.125;
+  margin-bottom: 10px;
+  letter-spacing: -3px;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: 80px;
+  }
+}
+h3 {
+  color: rgb(255, 255, 255);
+  font-family: helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.85;
+  margin: 0;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  
+ 
+}
+
+@media (min-width: 800px) {
+  h3 {
+    font-size: 23px;
+  }
+}
+p {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: georgia, times, serif;
+  font-weight: normal;
+}
+
+
+
+
+.dot-nav li a:hover + span {
+  opacity: 1;
+}
+
+.page-block {
+  background-size: cover;
+}
+
+.content {
+  width: 70%;
+  margin: 0 auto;
+  padding: 3em 0;
+  text-align: center;
+  color: #000000;
+}
+
+
+
+</style>
+<body style="background-color: rgb(255, 255, 255); color: rgb(19, 17, 17);">
+
+  <!-- Nav bar Start -->
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light ">
+    <div class="container" id="container">
+      <img src="./images/lllo-removebg-preview.png" style="height: 125px; " alt="">
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center abc" id="navbarSupportedContent">
+        <ul class="nav justify-content-center " id="nav-links">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="tripcatalog.html">Trip Catalog</a>
+          </li>
+          <li class="nav-item ">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        
+
+
+
+          
+            
+            <li class="nav-item dropdown" id="dropdown">
+              <a class="nav-link dropdown-toggle" href="national.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false" >
+      Others
+              </a>
+              <ul class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="review .html" style="text-decoration: none; font-size: medium;">
+                 reviews </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" style="color: white;">
+                </li>
+  
+                <li><a class="dropdown-item" href="feedback.html"
+                    style="text-decoration: none;  font-size: medium;">Feedback</a></li>
+                <li>
+                  <hr class="dropdown-divider" style="color: white;">
+                  <li><a class="dropdown-item" href="contact.html"
+                    style="text-decoration: none;  font-size: medium;">ContactUs</a></li>
+                <li>
+                </li>
+          </li>
+
+        
+
+   
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- Nav Bar End-->
+
+
+  <!-- banner Image Start -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active"> 
+        <img src="./images/hawai3.jpg" class="d-block w-100 " alt="..." style="height: 600px;"> 
+      </div>
+    </div>
+    <div class="carousel-caption" style=" padding-bottom: 0px;">
+      <p class=""></p>
+    </div>
+  </div>
+
+
+  <!-- banner Image End -->
+
+
+
+  <!-- featured products -->
+
+  <hr>
+  <h1 class="text-center mt-5 fw-bold" style="font-family: 'Genos', sans-serif;">About
+    </h1>
+  <p class="text-center fw-bold"></p>
+<!-- blog End -->
+
+  <!-- Products -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="row">
+      
+        <div class="sec-title text-center wow animated fadeInDown margin-top ">
+        
+        </div>
+        
+
+        
+          
+        
+  </section>
+
+ 
+      
+  <div class="main">
+    <section id="one" data-anchor="one" class="page-block">
+      <div class="content">
+        <h1>Mission Statement from its values</h1>
+     
+        <div class="jquery-script-ads"><script type="text/javascript"><!--
+  google_ad_client = "ca-pub-2783044520727903";
+  /* jQuery_demo */
+  google_ad_slot = "2780937993";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script></div>
+        <p class="wow animated fadeInDown ">"
+          At Travel Smart, our mission is to make travel accessible, authentic, and enriching for everyone. We believe exploring beautiful countries should be a seamless experience, filled with opportunities to connect with local cultures and communities. We prioritize authenticity by partnering with knowledgeable local guides who share their passion and insights. Our commitment to sustainability ensures that we promote responsible travel practices that respect the environment and support local economies. Through innovation, we continually seek new ways to enhance your travel experience, offering personalized packages tailored to your unique interests. Ultimately, we foster a sense of community among travelers and locals, creating memorable interactions that last a lifetime. Join us on a journey that celebrates the beauty of the world, one adventure at a time!
+          
+          </p>
+      </div>
+    </section>
+    <section id="two" data-anchor="two" class="page-block">
+      <div class="content">
+        <h1 > INTRODUCTION:</h1>
+       
+        <p class="wow animated fadeInDown ">Welcome to Travel Smart! Discover the world with our expertly 
+          curated tour guides and packages, designed to unveil the beauty and charm of 
+          xplore the globe with our tailored tour guides and packages, 
+showcasing the breathtaking wonders of beautiful countries. We’re here to turn your travel dreams into reality,
+offering unique experiences and insights into vibrant cultures. Embark on your next adventure with us today!
+
+          </p>
+  <p class="wow animated fadeInDown ">stunning destinations. Let us help you create unforgettable memories as you explore diverse 
+    cultures and breathtaking landscapes. Start your adventure with us today!</p>
+      </div>
+    </section>
+    <section id="three" data-anchor="three" class="page-block">
+      <div class="content">
+        <h1>TRAVEL SMART
+           NAME  HISTORY</h1>
+        <p class="wow animated fadeInDown">
+          Founded in 2010 by a group of passionate explorers, Travel Smart emerged from a shared dream to make global travel accessible and enriching for everyone. Inspired by their own journeys through hidden gems and iconic landmarks, our founders envisioned a platform that connects travelers with local guides, ensuring authentic experiences in beautiful destinations.
+          
+          Over the years, Travel Smart has grown into a trusted resource for personalized travel packages, allowing adventurers to dive deep into diverse cultures and breathtaking landscapes. Today, we continue to uphold our mission: to empower every traveler to discover the world wisely and passionately. Join us as we craft unforgettable journeys together!
+          
+          
+          
+      
+          
+          Travel Smart was established in 2015 by a trio of globetrotters who believed that travel should be both enriching and easy. After witnessing firsthand the challenges of navigating new cultures and unfamiliar territories, they set out to create a platform that simplifies travel planning while offering genuine local insights.
+          
+          Since our inception, we’ve partnered with knowledgeable guides from around the world, transforming ordinary trips into extraordinary adventures. Today, Travel Smart is your go-to source for immersive travel experiences, helping you explore the hidden treasures of each destination with confidence and style. Join us as we continue our journey of discovery!
+          nge their lifestyle. Get in shape with  today.</p><br/>            </div>
+    </section>
+    <section id="four" data-anchor="four" class="page-block">
+      <div class="content">
+        <h1>STORY </h1>
+        <p class="wow animated fadeInDown">
+         Travel Smart emerged from a shared dream to make global travel accessible and enriching for everyone. Inspired by their own journeys through hidden gems and iconic landmarks, our founders envisioned a platform that connects travelers with local guides, ensuring authentic experiences in beautiful destinations.
+          
+          Over the years, Travel Smart has grown into a trusted resource for personalized travel packages, allowing adventurers to dive deep into diverse cultures and breathtaking landscapes. Today, we continue to uphold our mission: to empower every traveler to discover the world wisely and passionately. Join us as we craft unforgettable journeys together!
+          
+          
+          
+      
+          
+          Travel Smart was established in 2015 by a trio of globetrotters who believed that travel should be both enriching and easy. After witnessing firsthand the challenges of navigating new cultures and unfamiliar territories, they set out to create a platform that simplifies travel planning while offering genuine local insights.
+          
+          Since our inception, we’ve partnered with knowledgeable guides from around the world, transforming ordinary trips into extraordinary adventures. Today, Travel Smart is your go-to source for immersive travel experiences, helping you explore the hidden treasures of each destination with confidence and style. Join us as we continue our journey of discovery!
+          nge their lifestyle. Get in shape with  today.</p><br/>        </div>
+    </section>
+    
+  </div>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+  $('.dot-nav a').on('click', function() {
+  
+      var scrollAnchor = $(this).attr('data-scroll'),
+          scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 28;
+  
+      $('.main').animate({
+          scrollTop: scrollPoint
+      }, 500);
+  
+      return false;
+  
+  })
+  
+  
+  $(window).scroll(function() {
+      var windscroll = $(window).scrollTop();
+      if (windscroll >= 100) {
+          $('.dot-nav').addClass('fixed');
+          $('.main section').each(function(i) {
+              if ($(this).position().top <= windscroll) {
+                  $('.dot-nav a.active').removeClass('active');
+                  $('.dot-nav a').eq(i).addClass('active');
+              }
+          });
+  
+      } else {
+  
+          $('dot-nav').removeClass('fixed');
+          $('dot-nav a.active').removeClass('active');
+          $('dot-nav a:first').addClass('active');
+      }
+  
+  }).scroll();
+  </script>
+  
+  <script type="text/javascript">
+  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  
+  </script>
+  <!-- Products End-->
+
+  <br><br>
+   
+          <!-- Grid column -->
+          <footer class="text-center text-lg-start bg-body-tertiary text-muted bg-k" style="background-color: black;">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center">
+              <!-- Left -->
+              <div class=" me-5 d-none d-lg-block">
+                <!-- <span>Get connected with us on social networks:</span>
+            </div> -->
+                <!-- Left -->
+        
+                <!-- Right -->
+                <div class="mt-3 text-light">
+                  <a href="https://www.facebook.com/" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="https://twitter.com/i/flow/login" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=ASKXGp0NmuQ3tEkg0ANXbQZN2BxSMCzfdoVIeWg4UlYivKGyfaFukHJElZSVG7d2incy5cpxFhF7&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-821940488%3A1705991549232520&theme=glif"
+                    target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/login" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/login" target="_blank" class="me-4 text-reset" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        
+            <!-- Section: Links  -->
+            <section class="">
+              <div class="container text-center text-md-start mt-5 text-light ">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4 col-sm-6 text-light " style="">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                      <i><img src="./images/looog-removebg-preview.png" style="width: 80px; height: 80px;" alt="" srcset=""> </i>
+          Smart Travel
+          
+                    </h6>
+                    <p>
+                      Home to some of the most spectacular mountain scenery in the world, thriving cities, colourful markets and warm hospitality, a trip to this part of the world is bound to excite even the worldliest travellers.
+                  </div>
+                  <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4 col-sm-6">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Trip catalog</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">ABOUT</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Contact Us</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">feedback</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-3 col-xl-2 mx-auto mb-4 col-sm-6">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              LOCATION
+            </h6>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14473.974521833783!2d67.0223113026026!3d24.91524835706394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33fbd469d9bcd%3A0x749325c6e39952f3!2sNazimabad%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1705564264212!5m2!1sen!2s"
+              width="300px" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024:
+    <a class="text-reset fw-bold" href="./index.html">SmartTravel.com</a>
+  </div>
+  <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="js/web.js"></script>
+<script>
+  $(".navbar-toggler").click(function () {
+    $(".abc").toggleClass("backcover")
+  })
+</script>
+<!-- <script>
+  document.getElementById("demo").innerHTML="Welcome-"+ localStorage.getItem("Username")
+</script> -->
+<!-- <script>
+   document.getElementById("demo").innerHTML="Welcome-"+ localStorage.getItem("Username")
+</script> -->
+
+</html>

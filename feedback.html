@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartTravel</title>
+  <link rel="shortcut icon" href="/images/logoo-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./images/looog-removebg-preview.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Genos&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.name-fields {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #27c2ff;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.name-fields input {
+    flex: 1;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rating label {
+    flex-basis: 48%;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #39b0ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .name-fields {
+        flex-direction: column;
+    }
+
+    .rating label {
+        flex-basis: 100%;
+    }
+}
+
+.success-message {
+    background-color: #000000;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+
+
+
+</style>
+<body style="background-color: rgb(0, 0, 0); color: rgb(255, 241, 241);">
+
+  <!-- Nav bar Start -->
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light ">
+    <div class="container" id="container">
+      <img src="./images/lllo-removebg-preview.png" style="height: 125px; " alt="">
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center abc" id="navbarSupportedContent">
+        <ul class="nav justify-content-center " id="nav-links">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="tripcatalog.html">Trip Catalog</a>
+          </li>
+          <li class="nav-item ">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        
+
+
+
+          
+            
+            <li class="nav-item dropdown" id="dropdown">
+              <a class="nav-link dropdown-toggle" href="national.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false" >
+      Others
+              </a>
+              <ul class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="review .html" style="text-decoration: none; font-size: medium;">
+                 reviews </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" style="color: white;">
+                </li>
+  
+                <li><a class="dropdown-item" href="feedback.html"
+                    style="text-decoration: none;  font-size: medium;">Feedback</a></li>
+                <li>
+                  <hr class="dropdown-divider" style="color: white;">
+                  <li><a class="dropdown-item" href="contact.html"
+                    style="text-decoration: none;  font-size: medium;">ContactUs</a></li>
+                <li>
+                </li>
+          </li>
+
+        
+
+   
+
+
+      </div>
+    </div>
+  </nav>
+  <!-- Nav Bar End-->
+
+
+  <!-- banner Image Start -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active"> 
+        <img src="./images/pic6.jpg" class="d-block w-100 " alt="..." style="height: 600px;"> 
+      </div>
+    </div>
+    <div class="carousel-caption" style=" padding-bottom: 0px;">
+      <p class=""></p>
+    </div>
+  </div>
+
+
+  <!-- banner Image End -->
+
+
+<div class="container">
+  <h1 class="text-center mt-5 fw-bold" style="  font-family: 'Genos', sans-serif ; ">feedback    </h1>    
+    <!-- Success message (hidden by default) -->
+    <div id="successMessage" class="success-message" style="display:none;">
+        Thank you! Your feedback has been submitted.
+    </div>
+    
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="firstName">Name</label>
+            <div class="name-fields">
+                <input type="text" id="Name" name="Name" placeholder="First Name" required>
+                <input type="text" id="LastName" name="LastName" placeholder="Last Name" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Please provide your feedback on the quality of our service.</label>
+            <div class="rating"   >
+                <label><input type="radio" name="quality" value="excellent" id="rating" name="rating" required> Excellent</label>
+                <label><input type="radio" name="quality" value="very-good"> Very Good</label>
+                <label><input type="radio" name="quality" value="good"> Good</label>
+                <label><input type="radio" name="quality" value="average"> Average</label>
+                <label><input type="radio" name="quality" value="poor"> Poor</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="suggestions">Do you have suggestions on what we can do to provide you with a better service?</label>
+            <textarea id="msg"  name="msg"  placeholder="Type here..." rows="4"></textarea>
+        </div>
+
+        <div class="button">
+          <input type="submit" id="message"  class="message" >
+        </div>
+    </form>
+</div>
+
+<script>
+  function handleSubmit(event) {
+      event.preventDefault();
+    
+      const data = new FormData(event.target);
+      const value = Object.fromEntries(data.entries());
+      const jsonData = JSON.stringify(value);
+      console.log(jsonData);
+
+      // Store data in local storage
+      localStorage.setItem('formData', jsonData);
+
+      // Redirect to the display page
+      window.location.href = 'display fb.html';
+  }
+
+  const form = document.getElementById('feedbackForm');
+  form.addEventListener('submit', handleSubmit);
+</script>
+
+<script>
+    // JavaScript for handling form submission
+    document.getElementById("feedbackForm").addEventListener("submit", function(event){
+        event.preventDefault();  // Prevent form from submitting the traditional way
+
+        // Show the success message
+        document.getElementById("successMessage").style.display = "block";
+
+        // Optionally hide the form after submission
+        document.getElementById("feedbackForm").style.display = "none";
+    });
+</script>
+
+
+<br>
+  <!-- Products End-->
+
+  <br><br>
+  <hr> 
+          <!-- Grid column -->
+          <footer class="text-center text-lg-start bg-body-tertiary text-muted bg-k" style="background-color: black;">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center">
+              <!-- Left -->
+              <div class=" me-5 d-none d-lg-block">
+                <!-- <span>Get connected with us on social networks:</span>
+            </div> -->
+                <!-- Left -->
+        
+                <!-- Right -->
+                <div class="mt-3 text-light">
+                  <a href="https://www.facebook.com/" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="https://twitter.com/i/flow/login" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=ASKXGp0NmuQ3tEkg0ANXbQZN2BxSMCzfdoVIeWg4UlYivKGyfaFukHJElZSVG7d2incy5cpxFhF7&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-821940488%3A1705991549232520&theme=glif"
+                    target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-google"></i>
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/login" target="_blank" class="me-4 text-reset">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/login" target="_blank" class="me-4 text-reset" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        
+            <!-- Section: Links  -->
+            <section class="">
+              <div class="container text-center text-md-start mt-5 text-light ">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4 col-sm-6 text-light " style="">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                      <i><img src="./images/looog-removebg-preview.png" style="width: 80px; height: 80px;" alt="" srcset=""> </i>
+          Smart Travel
+          
+                    </h6>
+                    <p>
+                      Home to some of the most spectacular mountain scenery in the world, thriving cities, colourful markets and warm hospitality, a trip to this part of the world is bound to excite even the worldliest travellers.
+                  </div>
+                  <!-- Grid column -->
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4 col-sm-6">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Trip catalog</a>
+            </p>
+            <p>
+              <a href="#" class="text-reset">ABOUT</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Contact Us</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">feedback</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-3 col-xl-2 mx-auto mb-4 col-sm-6">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              LOCATION
+            </h6>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14473.974521833783!2d67.0223113026026!3d24.91524835706394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33fbd469d9bcd%3A0x749325c6e39952f3!2sNazimabad%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1705564264212!5m2!1sen!2s"
+              width="300px" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024:
+    <a class="text-reset fw-bold" href="./index.html">SmartTravel.com</a>
+  </div>
+  <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="js/web.js"></script>
+<script>
+  $(".navbar-toggler").click(function () {
+    $(".abc").toggleClass("backcover")
+  })
+</script>
+<!-- <script>
+  document.getElementById("demo").innerHTML="Welcome-"+ localStorage.getItem("Username")
+</script> -->
+<!-- <script>
+   document.getElementById("demo").innerHTML="Welcome-"+ localStorage.getItem("Username")
+</script> -->
+
+</html>
